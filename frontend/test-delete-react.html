@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account React Test</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        button:hover:not(:disabled) {
+            background-color: #b71c1c;
+        }
+        .error {
+            color: #d32f2f;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .success {
+            color: #2e7d32;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .debug {
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        function DeleteAccountTest() {
+            const [deleteConfirmation, setDeleteConfirmation] = useState('');
+            const [deletePassword, setDeletePassword] = useState('');
+
+            useEffect(() => {
+                console.log('deleteConfirmation changed to:', deleteConfirmation);
+            }, [deleteConfirmation]);
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                console.log('Form submitted');
+                console.log('Confirmation:', deleteConfirmation);
+                console.log('Password length:', deletePassword.length);
+                console.log('Exact match check:', deleteConfirmation === 'DELETE MY ACCOUNT');
+            };
+
+            const isButtonEnabled = deleteConfirmation === 'DELETE MY ACCOUNT' && deletePassword.length > 0;
+            const hasConfirmationError = deleteConfirmation && deleteConfirmation !== 'DELETE MY ACCOUNT';
+
+            return (
+                <div>
+                    <h1>Delete Account React Test</h1>
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="confirmation">Type "DELETE MY ACCOUNT" to confirm:</label>
+                            <input
+                                type="text"
+                                id="confirmation"
+                                value={deleteConfirmation}
+                                onChange={(e) => {
+                                    console.log('Input changing to:', e.target.value);
+                                    setDeleteConfirmation(e.target.value);
+                                }}
+                                placeholder="DELETE MY ACCOUNT"
+                                autoComplete="off"
+                                data-lpignore="true"
+                            />
+                            {hasConfirmationError && (
+                                <div className="error">Please type exactly: DELETE MY ACCOUNT</div>
+                            )}
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="password">Enter your password:</label>
+                            <input
+                                type="password"
+                                id="password"
+                                value={deletePassword}
+                                onChange={(e) => setDeletePassword(e.target.value)}
+                                placeholder="Password"
+                                autoComplete="off"
+                            />
+                        </div>
+
+                        <button type="submit" disabled={!isButtonEnabled}>
+                            Delete Account
+                        </button>
+
+                        {isButtonEnabled && (
+                            <div className="success">✓ Ready to delete account</div>
+                        )}
+                    </form>
+
+                    <div className="debug">
+                        <strong>Debug Info:</strong><br/>
+                        Confirmation: "{deleteConfirmation}"<br/>
+                        Password length: {deletePassword.length}<br/>
+                        Exact match: {deleteConfirmation === 'DELETE MY ACCOUNT' ? 'YES' : 'NO'}<br/>
+                        Button enabled: {isButtonEnabled ? 'YES' : 'NO'}
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<DeleteAccountTest />, document.getElementById('root'));
+    </script>
+</body>
+</html>

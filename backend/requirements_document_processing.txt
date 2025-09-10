@@ -1,0 +1,14 @@
+# Document Processing Libraries for AI Study Platform
+PyPDF2==3.0.1
+python-docx==0.8.11
+nltk==3.8.1
+transformers==4.35.2
+torch==2.1.1
+sentence-transformers==2.2.2
+
+# Alternative/backup summarization libraries
+sumy==0.11.0
+spacy==3.7.2
+
+# File handling and validation
+python-magic==0.4.27

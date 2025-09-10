@@ -1,0 +1,58 @@
+# Core Django and API
+Django==4.2.7
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+djangorestframework-simplejwt==5.3.0
+
+# Database
+mysqlclient==2.2.0
+
+# AI and ML
+# numpy==1.24.4
+# pandas==2.1.4
+scikit-learn>=1.3.0
+nltk==3.8.1
+# spacy==3.7.2  # Temporarily commenting out spacy due to compilation issues
+
+# API and HTTP
+requests==2.31.0
+httpx==0.25.2
+openai==1.3.8
+
+# Environment and Configuration
+python-decouple==3.8
+django-environ==0.11.2
+
+# Security
+cryptography==41.0.8
+bcrypt==4.1.2
+
+# Task Queue
+celery==5.3.4
+django-celery-beat==2.5.0
+
+# File handling
+Pillow==10.1.0
+python-multipart==0.0.6
+
+# Development and Testing
+pytest==7.4.3
+pytest-django==4.7.0
+factory-boy==3.3.0
+
+# Documentation
+drf-spectacular==0.26.5
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+
+
+PyPDF2==3.0.1 
+python-docx==0.8.11 
+nltk==3.8.1
+transformers==4.35.2 
+sentence-transformers==2.2.2
+sumy==0.11.0 
+spacy==3.7.2
+python-magic==0.4.27

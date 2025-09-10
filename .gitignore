@@ -1,0 +1,435 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# === FRONTEND (React) ===
+
+# Dependencies
+frontend/node_modules/
+frontend/.pnp
+frontend/.pnp.js
+
+# Testing
+frontend/coverage/
+
+# Production
+frontend/build/
+frontend/dist/
+
+# Misc
+frontend/.DS_Store
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Runtime data
+frontend/pids
+frontend/*.pid
+frontend/*.seed
+frontend/*.pid.lock
+
+# === BACKEND (Django/Python) ===
+
+# Byte-compiled / optimized / DLL files
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+
+# C extensions
+backend/*.so
+
+# Distribution / packaging
+backend/.Python
+backend/build/
+backend/develop-eggs/
+backend/dist/
+backend/downloads/
+backend/eggs/
+backend/.eggs/
+backend/lib/
+backend/lib64/
+backend/parts/
+backend/sdist/
+backend/var/
+backend/wheels/
+backend/pip-wheel-metadata/
+backend/share/python-wheels/
+backend/*.egg-info/
+backend/.installed.cfg
+backend/*.egg
+backend/MANIFEST
+
+# Django specific
+backend/*.log
+backend/local_settings.py
+backend/db.sqlite3
+backend/db.sqlite3-journal
+backend/media/
+
+# Static files
+backend/staticfiles/
+backend/static/
+
+# PyInstaller
+backend/*.manifest
+backend/*.spec
+
+# Installer logs
+backend/pip-log.txt
+backend/pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+backend/htmlcov/
+backend/.tox/
+backend/.nox/
+backend/.coverage
+backend/.coverage.*
+backend/.cache
+backend/nosetests.xml
+backend/coverage.xml
+backend/*.cover
+backend/*.py,cover
+backend/.hypothesis/
+backend/.pytest_cache/
+
+# Translations
+backend/*.mo
+backend/*.pot
+
+# Scrapy stuff:
+backend/.scrapy
+
+# Sphinx documentation
+backend/docs/_build/
+
+# PyBuilder
+backend/target/
+
+# Jupyter Notebook
+backend/.ipynb_checkpoints
+
+# IPython
+backend/profile_default/
+backend/ipython_config.py
+
+# pyenv
+backend/.python-version
+
+# pipenv
+backend/Pipfile.lock
+
+# PEP 582
+backend/__pypackages__/
+
+# Celery stuff
+backend/celerybeat-schedule
+backend/celerybeat.pid
+
+# SageMath parsed files
+backend/*.sage.py
+
+# Spyder project settings
+backend/.spyderproject
+backend/.spyproject
+
+# Rope project settings
+backend/.ropeproject
+
+# mkdocs documentation
+backend/site
+
+# mypy
+backend/.mypy_cache/
+backend/.dmypy.json
+backend/dmypy.json
+
+# Pyre type checker
+backend/.pyre/
+
+# === VIRTUAL ENVIRONMENTS ===
+backend/venv/
+backend/env/
+backend/ENV/
+backend/env.bak/
+backend/venv.bak/
+
+# === ENVIRONMENT VARIABLES ===
+# All .env files (contains sensitive data)
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+*.env
+**/.env
+
+# Specific environment files
+backend/.env.local
+backend/.env.development
+backend/.env.production
+frontend/.env.local
+frontend/.env.development
+frontend/.env.production
+
+# === EDITOR & IDE ===
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# === OPERATING SYSTEM ===
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# === DATABASE ===
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# === LOGS ===
+*.log
+logs/
+log/
+
+# === TEMPORARY FILES ===
+*.tmp
+*.temp
+temp/
+tmp/
+
+# === BACKUP FILES ===
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+
+# === SECURITY ===
+*.pem
+*.key
+*.crt
+*.csr
+secrets.json
+credentials.json
+
+# === CACHE ===
+.cache/
+*.cache
+
+# === PROJECT SPECIFIC ===
+
+# AI/ML models and data
+backend/models/
+backend/data/
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+*.model
+
+# Document processing
+backend/uploads/
+backend/documents/
+backend/processed_documents/
+
+# Test files
+backend/test_*.html
+backend/test_output/
+backend/test_results/
+
+# Development tools
+.eslintcache
+.parcel-cache/
+
+# Package manager (keep package-lock.json for consistent installs)
+yarn.lock
+pnpm-lock.yaml
+
+# Sentry
+.sentryclirc
+
+# Vercel
+.vercel
+
+# Next.js (if using)
+.next/
+out/
+
+# Nuxt.js (if using)
+.nuxt
+dist
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+.tmp/
+.sass-cache/
+
+# Local configuration
+local_settings.py
+settings_local.py
+config_local.py
+
+# === AI STUDY SPECIFIC ===
+
+# AI Model files
+backend/ai_models/
+backend/trained_models/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.tflite
+
+# User uploaded files
+backend/media/uploads/
+backend/media/documents/
+backend/media/user_files/
+
+# Processed documents
+backend/processed_documents/
+backend/document_cache/
+
+# Chat logs and AI interactions
+backend/chat_logs/
+backend/interaction_logs/
+
+# Development databases
+*.db-wal
+*.db-shm
+test.db
+development.db
+
+# IDE and development tools
+.vscode/settings.json.local
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf/
+
+# Windows development specific
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# macOS development specific
+.vscode/
+
+# Jupyter Notebooks (additional)
+backend/.ipynb_checkpoints/
+frontend/.ipynb_checkpoints/
+*.ipynb
+
+# Development scripts output
+backend/debug_output/
+backend/test_output/
+backend/migration_backups/
+
+# Frontend additional
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/build/
+frontend/dist/
+
+# API keys and secrets (additional security)
+.api_keys
+secrets/
+credentials/
+api_keys.txt
+openai_key.txt
+
+# Docker development
+docker-compose.override.yml
+.dockerignore.local
+
+# Performance profiling
+profile_results/
+*.prof
+*.profile
+
+# Database backups
+backup/
+db_backup/
+*.sql.gz
+*.dump

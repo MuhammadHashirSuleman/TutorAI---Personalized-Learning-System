@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        button:hover:not(:disabled) {
+            background-color: #b71c1c;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+        .success {
+            background-color: #e8f5e8;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete Account Test</h1>
+    <p>This test verifies that the delete account functionality works correctly.</p>
+    
+    <form id="deleteForm">
+        <div class="form-group">
+            <label for="confirmation">Type "DELETE MY ACCOUNT" to confirm:</label>
+            <input type="text" id="confirmation" placeholder="DELETE MY ACCOUNT">
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Enter your password:</label>
+            <input type="password" id="password" placeholder="Password">
+        </div>
+        
+        <button type="submit" id="deleteBtn" disabled>Delete Account</button>
+    </form>
+    
+    <div id="status"></div>
+
+    <script>
+        const confirmationInput = document.getElementById('confirmation');
+        const passwordInput = document.getElementById('password');
+        const deleteBtn = document.getElementById('deleteBtn');
+        const statusDiv = document.getElementById('status');
+
+        function updateButtonState() {
+            const confirmationValue = confirmationInput.value;
+            const passwordValue = passwordInput.value;
+            
+            console.log('Confirmation:', confirmationValue);
+            console.log('Password length:', passwordValue.length);
+            console.log('Exact match check:', confirmationValue === 'DELETE MY ACCOUNT');
+            
+            const isEnabled = confirmationValue === 'DELETE MY ACCOUNT' && passwordValue.length > 0;
+            deleteBtn.disabled = !isEnabled;
+            
+            // Update status
+            if (confirmationValue && confirmationValue !== 'DELETE MY ACCOUNT') {
+                statusDiv.innerHTML = '<div class="error">Please type exactly: DELETE MY ACCOUNT</div>';
+            } else if (confirmationValue === 'DELETE MY ACCOUNT' && !passwordValue) {
+                statusDiv.innerHTML = '<div class="error">Please enter your password</div>';
+            } else if (isEnabled) {
+                statusDiv.innerHTML = '<div class="success">Ready to delete account</div>';
+            } else {
+                statusDiv.innerHTML = '';
+            }
+        }
+
+        confirmationInput.addEventListener('input', updateButtonState);
+        passwordInput.addEventListener('input', updateButtonState);
+
+        document.getElementById('deleteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (confirmationInput.value === 'DELETE MY ACCOUNT' && passwordInput.value) {
+                statusDiv.innerHTML = '<div class="success">✓ Delete validation passed! (In real app, this would call the API)</div>';
+            } else {
+                statusDiv.innerHTML = '<div class="error">❌ Validation failed</div>';
+            }
+        });
+    </script>
+</body>
+</html>
